@@ -72,7 +72,7 @@ print("2 次多项式均方根误差: ", mean_squared_error(test_y, results_2.fl
 
 
 # 8. 更高次多项式回归预测
-
+# 流式计算
 from sklearn.pipeline import make_pipeline
 
 train_x = train_x.reshape(len(train_x),1)
@@ -80,6 +80,7 @@ test_x = test_x.reshape(len(test_x),1)
 train_y = train_y.reshape(len(train_y),1)
 
 for m in [3, 4, 5]:
+    # 使用流式计算
     model = make_pipeline(PolynomialFeatures(m, include_bias=False), LinearRegression())
     model.fit(train_x, train_y)
     pre_y = model.predict(test_x)
