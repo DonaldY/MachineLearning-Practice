@@ -10,7 +10,7 @@ from sklearn.linear_model import LogisticRegression
 df = pd.read_csv("course-8-data.csv", header=0) # 加载数据集
 df.head()
 
-x = np.linspace(-2,12,100)
+x = df[['X0','X1']].values
 y = df['Y'].values
 
 model = LogisticRegression(tol=0.001, max_iter=10000) # 设置一样的学习率和迭代次数
